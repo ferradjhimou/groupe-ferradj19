@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrôle Barrages</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #e0f2f1;
+      text-align: center;
+    }
+    header {
+      background: #00796b;
+      color: white;
+      padding: 20px 10px;
+      font-size: 24px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    header img {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    .cuve {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      transition: transform 0.3s;
+    }
+    .cuve:hover {
+      transform: scale(1.02);
+    }
+    .cuve h3 {
+      color: #004d40;
+      margin-bottom: 10px;
+    }
+    .cuve p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #2196f3;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #1976d2;
+    }
+    .stop-btn {
+      background: #e53935;
+    }
+    .stop-btn:hover {
+      background: #c62828;
+    }
+    .mode-btn {
+      background: #ff9800;
+      margin: 20px 0;
+    }
+    .mode-btn:hover {
+      background: #fb8c00;
+    }
+    footer {
+      color: #777;
+      margin: 30px auto;
+      font-size: 14px;
+    }
+    @media(max-width:600px){
+      .cuve { width: 90%; }
+    }
+  </style>
+  <script>
+    function confirmAction(msg) {
+      return confirm(msg);
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" height="30">
+    Système de Contrôle des Barrages
+  </header>
+
+  <!-- Exemple de 3 cuves statiques -->
+  <div class="cuve">
+    <h3>Barrage Ain Abessa</h3>
+    <p>Niveau : <strong>65%</strong> (130 cm)</p>
+    <form action="/on0"><button onclick="return confirmAction('Activer pompe vers réservoir 2 ?')">POMPE → Réservoir 2</button></form>
+    <form action="/on1"><button onclick="return confirmAction('Activer pompe vers réservoir 3 ?')">POMPE → Réservoir 3</button></form>
+    <form action="/off0"><button class="stop-btn" onclick="return confirmAction('Arrêter la pompe 1 ?')">STOP POMPE 1</button></form>
+    <form action="/off1"><button class="stop-btn" onclick="return confirmAction('Arrêter la pompe 2 ?')">STOP POMPE 2</button></form>
+  </div>
+
+  <div class="cuve">
+    <h3>Barrage Mawan City</h3>
+    <p>Niveau : <strong>45%</strong> (90 cm)</p>
+    <form action="/on2"><button onclick="return confirmAction('Activer pompe vers réservoir 1 ?')">POMPE → Réservoir 1</button></form>
+    <form action="/on3"><button onclick="return confirmAction('Activer pompe vers réservoir 3 ?')">POMPE → Réservoir 3</button></form>
+    <form action="/off2"><button class="stop-btn" onclick="return confirmAction('Arrêter la pompe 1 ?')">STOP POMPE 1</button></form>
+    <form action="/off3"><button class="stop-btn" onclick="return confirmAction('Arrêter la pompe 2 ?')">STOP POMPE 2</button></form>
+  </div>
+
+  <div class="cuve">
+    <h3>Barrage Ain Zada</h3>
+    <p>Niveau : <strong>80%</strong> (160 cm)</p>
+    <form action="/on4"><button onclick="return confirmAction('Activer pompe vers réservoir 1 ?')">POMPE → Réservoir 1</button></form>
+    <form action="/on5"><button onclick="return confirmAction('Activer pompe vers réservoir 2 ?')">POMPE → Réservoir 2</button></form>
+    <form action="/off4"><button class="stop-btn" onclick="return confirmAction('Arrêter la pompe 1 ?')">STOP POMPE 1</button></form>
+    <form action="/off5"><button class="stop-btn" onclick="return confirmAction('Arrêter la pompe 2 ?')">STOP POMPE 2</button></form>
+  </div>
+
+  <!-- Bouton mode automatique / manuel -->
+  <form action="/toggleAuto">
+    <button class="mode-btn">Mode Manuel</button>
+  </form>
+
+  <footer>By Groupe Ferradj © 2025</footer>
+
+</body>
+</html>
